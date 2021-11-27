@@ -12,6 +12,15 @@ mongoConnector.prototype.connectToDB = function(){
     return client.connect();
 }
 
+mongoConnector.prototype.find = function(collectionName){
+    var self = this;
+    var client = this.client;
+    client.db().collection().insertOne
+    return self.connectToDB().then(function(){
+        client.db().collection(collectionName).find();
+    })
+}
+
 mongoConnector.prototype.createCollection = function(collectionName){
     var self = this;
     var client = self.client;
@@ -23,6 +32,13 @@ mongoConnector.prototype.createCollection = function(collectionName){
     })
 }
 
+mongoConnector.prototype.insertOne = function(collectionName,data){
+    var self = this;
+    var clinet = self.client;
+    return self.connectToDB().then(function(){
+        return clinet.db().collection(collectionName).insertOne(data);
+    })
+}
 mongoConnector.prototype.insert = function(collectionName,data,matchCnd){
     var self = this;
     var client = self.client;
