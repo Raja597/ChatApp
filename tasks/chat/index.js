@@ -28,7 +28,7 @@ ChatAPI.prototype.sendRequest = function (msgArray, botDescription) {
     var req = {};
     req.baseURL = config.GPT3.baseUrl;
     req.method = 'POST';
-    req.url = '/davinci/completions';
+    req.url = '/babbage/completions';
     req.headers = {
         "Authorization": "Bearer " + config.GPT3.key,
         "Content-Type": "application/json"
